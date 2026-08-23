@@ -1,0 +1,640 @@
+/* ===================================================
+   project.css — estilos compartilhados pelas páginas de case
+   (appta.html, inpi.html, getsnack.html, lumpia.html)
+   =================================================== */
+
+/* ---------- Botão voltar ---------- */
+.case-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--color-bg);
+  border: 1px solid #cbc4c0;
+  border-radius: var(--radius-pill);
+  padding: 0.55rem 1rem 0.55rem 0.55rem;
+  font-size: var(--fs-small);
+  color: var(--color-text);
+  transition: background var(--ease) 0.25s, border-color var(--ease) 0.25s, transform var(--ease) 0.2s;
+}
+
+.case-back svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.case-back:hover,
+.case-back:focus-visible {
+  background: var(--color-text);
+  border-color: var(--color-text);
+  color: var(--color-bg);
+}
+
+.case-back:hover svg path,
+.case-back:focus-visible svg path {
+  stroke: var(--color-bg);
+}
+
+.case-back:active {
+  transform: scale(0.94);
+}
+
+/* no mobile, some o texto e o botão vira um círculo perfeito
+   (padding igual dos 4 lados, já que só sobra o ícone) */
+@media (max-width: 640px) {
+  .case-back {
+    padding: 0.8rem;
+  }
+
+  .case-back__label {
+    display: none;
+  }
+}
+
+/* ---------- Hero do case ---------- */
+.case-hero {
+  padding-block: 2.5rem 3rem;
+  text-align: center;
+}
+ 
+/* imagem de capa, fininha, com as bordas esmaecendo pro fundo —
+   tamanho máximo menor, alinhado com a largura do texto */
+.case-hero__cover {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.case-hero__cover img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 21 / 9;
+  height: auto;
+  display: block;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 22%, black 78%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, black 22%, black 78%, transparent 100%);
+}
+
+@media (max-width: 640px) {
+  .case-hero__cover img {
+    aspect-ratio: 4 / 3;
+    object-position: top center
+  }
+}
+ 
+/* pills flutuando exatamente sobre a borda da imagem — mesmo efeito em qualquer tela */
+.case-hero__tags {
+  position: absolute;
+  inset: 0;
+}
+ 
+.case-pill {
+  position: absolute;
+  background: var(--color-bg-alt);
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  box-shadow: 0 14px 30px -14px rgba(26, 18, 16, 0.4);
+  white-space: nowrap;
+  --shift: 50%; /* o quanto a pill "vaza" pra fora da borda — reduzido no mobile abaixo */
+
+  /* entrada: pill "sobe" e aparece — ver keyframes lá embaixo */
+  animation: pill-rise 0.7s var(--ease) backwards;
+}
+
+.case-pill-2 {
+  position: absolute;
+  background: #2A463C;
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-small);
+  color: var(--color-bg);
+  box-shadow: 0 14px 30px -14px rgba(26, 18, 16, 0.4);
+  white-space: nowrap;
+  --shift: 50%; /* o quanto a pill "vaza" pra fora da borda — reduzido no mobile abaixo */
+
+  /* entrada: pill "sobe" e aparece — ver keyframes lá embaixo */
+  animation: pill-rise 0.7s var(--ease) backwards;
+}
+ 
+.case-pill--1 { top: 10%;   left: 0;  transform: translateX(calc(-1 * var(--shift))) rotate(-4deg); animation-delay: 0.15s; }
+.case-pill--2 { top: -4%;   right: 0; transform: translateX(var(--shift)) rotate(3deg); animation-delay: 0.3s; }
+.case-pill--3 { bottom: 0%; left: 0;  transform: translateX(calc(-1 * var(--shift))) rotate(4deg); animation-delay: 0.45s; }
+.case-pill--4 { bottom: -4%; right: 0; transform: translateX(var(--shift)) rotate(-3deg); animation-delay: 0.6s; }
+ 
+@media (max-width: 640px) {
+  .case-pill-2 {
+    --shift: 12%; /* vaza bem menos, pra não cortar na tela pequena */
+    font-size: 0.72rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+.case-hero__title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+.case-hero__subtitle {
+  margin: 1rem auto 0;
+  max-width: 100ch;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ---------- Blocos de seção (padrão repetido no case) ---------- */
+.case-section {
+  padding-block: var(--space-section);
+}
+
+.case-section__head {
+  margin-bottom: clamp(1rem, 3vw, 1.75rem);
+}
+
+@media (max-width: 640px) {
+  .case-pill {
+    --shift: 10%; /* vaza bem menos, pra não cortar na tela pequena */
+    font-size: 0.72rem;
+    padding: 0.4rem 0.8rem;
+  }
+  .case-hero__subtitle {
+  margin: 1rem auto 0;
+  max-width: 100ch;
+  text-align: left;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+}
+
+@media (min-width: 860px) {
+  .case-section__head {
+    grid-template-columns: 260px 1fr;
+    align-items: baseline;
+  }
+}
+
+.case-section__eyebrow {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.case-section__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-style: italic;
+  font-size: var(--fs-h2);
+}
+
+.case-section__body {
+  max-width: 80ch;
+  color: var(--color-text);
+  font-size: 0.85rem;
+  line-height: 1.75;
+}
+
+.case-section__body + .case-section__body {
+  margin-top: 1rem;
+}
+
+/* quando o texto acompanha uma imagem lado a lado (desktop) */
+.case-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (min-width: 860px) {
+  .case-split {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .case-split--reverse .case-split__text { order: 2; }
+  .case-split--reverse .case-split__media { order: 1; }
+}
+
+.case-split__text {
+  max-width: 60ch;
+}
+
+.case-split__media img,
+.case-media img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.case-split__media_2 img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 30px 70px -36px rgba(26, 18, 16, 0.18);
+}
+
+/* ---------- Imagem cheia de seção ---------- */
+.case-media {
+  margin-top: 2.5rem;
+}
+
+.case-media--full img {
+  width: 100%;
+}
+
+.case-media--full-shadow img {
+  width: 100%;
+  box-shadow: 0 30px 70px -36px rgba(26, 18, 16, 0.18);
+}
+
+
+@media (max-width: 768px) {
+  .case-media img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    object-position: 55% center;
+    border-radius: 15px;
+  }
+}
+/* ---------- Galeria ---------- */
+
+.case-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.case-gallery__item {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.case-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border-radius: 18px;
+  box-shadow: 0 20px 45px -26px rgba(26, 18, 16, 0.16);
+}
+
+.case-gallery--pair {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .case-gallery--pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+
+.case-gallery__item--sketch img {
+  background: transparent;
+  border: 2px dashed var(--color-line);
+  box-shadow: none;
+}
+
+/* ---------- Fechamento + navegação pro próximo case ---------- */
+.case-close {
+  padding-block: var(--space-section);
+  border-top: 1px solid var(--color-line);
+  text-align: center;
+}
+
+.case-close__title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-h2);
+  max-width: 42ch;
+  margin-inline: auto;
+}
+
+.case-close__body {
+  margin-top: 1rem;
+  color: var(--color-text-muted);
+  max-width: 80ch;
+  margin-inline: auto;
+}
+
+.case-next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 720px;
+  margin-top: clamp(3rem, 7vw, 4.5rem);
+  padding: 1rem 1rem 1rem 1.8rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+  background: var(--color-bg-alt);
+  transition: background var(--ease) 0.25s, border-color var(--ease) 0.25s, transform var(--ease) 0.25s;
+}
+
+.case-next:hover,
+.case-next:focus-visible {
+  background: var(--color-text);
+  border-color: var(--color-text);
+  transform: translateY(-2px);
+}
+
+.case-next__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  text-align: left;
+}
+
+.case-next__label {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  transition: color var(--ease) 0.25s;
+}
+
+.case-next:hover .case-next__label,
+.case-next:focus-visible .case-next__label {
+  color: var(--color-bg);
+  opacity: 0.75;
+}
+
+.case-next__title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.4rem;
+  transition: color var(--ease) 0.25s;
+}
+
+.case-next:hover .case-next__title,
+.case-next:focus-visible .case-next__title {
+  color: var(--color-bg);
+}
+
+.case-next__arrow {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--ease) 0.3s, background var(--ease) 0.25s;
+}
+
+.case-next:hover .case-next__arrow,
+.case-next:focus-visible .case-next__arrow {
+  transform: translateX(4px);
+  background: var(--color-bg-alt);
+}
+
+.case-next__arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ===================================================
+   NOVO — animações de entrada (reveal ao rolar a página)
+   Precisa do project.js pra funcionar (ele adiciona a
+   classe "is-visible" quando o elemento entra na tela).
+   =================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* atraso pra escalonar itens de um mesmo grupo (galeria, split, etc.) */
+.reveal-delay-1.is-visible { transition-delay: 0.1s; }
+.reveal-delay-2.is-visible { transition-delay: 0.22s; }
+.reveal-delay-3.is-visible { transition-delay: 0.34s; }
+
+/* entrada das pills da capa (sobem e aparecem) */
+@keyframes pill-rise {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  .case-pill {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ===================================================
+   NOVO — card de destaque (ex: GetSnack Club)
+   Pra quando um bloco de texto merece um "respiro"
+   visual diferente dentro da seção — não é mais um
+   parágrafo, é um recorte especial.
+   =================================================== */
+
+.case-highlight {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  margin-top: 2.5rem;
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: #17553F ;
+}
+
+.case-highlight-lumpia {
+  background: #315347;
+}
+
+.case-highlight-inpi {
+  background: #ffffff;
+} 
+
+@media (min-width: 860px) {
+  .case-highlight,
+  .case-highlight-lumpia, .case-highlight-inpi {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .case-highlight--reverse .case-highlight__media { order: -1; }
+}
+
+.case-highlight__eyebrow {
+  display: inline-block;
+  font-size: var(--fs-small);
+  color: #d1d1d1;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.6rem;
+}
+
+.case-highlight__main {
+  display: inline-block;
+  font-size: var(--fs-small);
+  color: #545454;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.6rem;
+}
+
+.case-highlight__title {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: #ececec;
+  font-weight: 600;
+  font-size: clamp(1.4rem, 2.6vw, 1.85rem);
+  margin-bottom: 0.85rem;
+}
+
+.case-highlight__title-2 {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: clamp(1.4rem, 2.6vw, 1.85rem);
+  margin-bottom: 0.85rem;
+}
+
+.case-highlight__body {
+  color: var(--color-text);
+  font-size: 0.85rem;
+  color: #dedede;
+  line-height: 1.75;
+  max-width: 52ch;
+}
+
+.case-highlight__body-2 {
+  color: var(--color-text);
+  font-size: 0.85rem;
+  line-height: 1.75;
+  max-width: 52ch;
+  color: var(--color-text-muted);
+}
+
+.case-highlight__media {
+  position: relative;
+}
+
+.case-highlight__media img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+}
+
+/* ===================================================
+   NOVO — card final expansível (CTA de contato)
+   Usado só no fechamento do último case (Lumpia).
+   =================================================== */
+
+.case-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.case-next--cta {
+  cursor: pointer;
+}
+
+.case-next--cta .case-next__arrow svg {
+  transition: transform var(--ease) 0.3s;
+}
+
+.case-next--cta[aria-expanded="true"] .case-next__arrow svg {
+  transform: rotate(90deg);
+}
+
+.case-cta__panel {
+  width: 100%;
+  max-width: 720px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  text-align: center;
+  transition:
+    max-height 0.6s var(--ease),
+    opacity 0.5s var(--ease),
+    margin-top 0.6s var(--ease),
+    padding-top 0.6s var(--ease);
+}
+
+.case-cta__panel.is-open {
+  max-height: 420px;
+  opacity: 1;
+  margin-top: 2.25rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.case-cta__title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(1.85rem, 4.5vw, 2.75rem);
+}
+
+.case-cta__body {
+  margin: 1rem auto 0;
+  max-width: 48ch;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.case-cta__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.75rem;
+  padding: 0.9rem 1.85rem;
+  background: var(--color-text);
+  color: var(--color-bg);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  transition: transform var(--ease) 0.25s, opacity var(--ease) 0.25s;
+}
+
+.case-cta__button svg {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--ease) 0.25s;
+}
+
+.case-cta__button:hover,
+.case-cta__button:focus-visible {
+  transform: translateY(-2px);
+  opacity: 0.88;
+}
+
+.case-cta__button:hover svg,
+.case-cta__button:focus-visible svg {
+  transform: translateX(3px);
+}
