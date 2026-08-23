@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rayane Araújo — Designer de Produto</title>
+  <meta name="description" content="Portfólio de Rayane Araújo, designer de produto especializada em UX/UI, branding e design systems.">
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Bodoni+Moda:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="static/css/home.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="static/img/logo/logo_rayane.svg">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/index.html" class="site-logo" aria-label="Rayane Araújo — início">
+        <span class="site-logo__text">R.</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="container">
+        <p class="hero__eyebrow">Designer UX/UI</p>
+        <h1 class="hero__name">Rayane Araújo</h1>
+
+        <div class="hero__symbol" aria-hidden="true">
+          <div class="hero__symbol-inner">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50.0135 0C50.0135 0 51.7439 17.4402 52.5389 20.5352C54.0927 26.5828 54.3137 29.8108 58.5946 33.334C62.7762 36.7752 69.7351 37.6889 74.5086 37.8809C75.5169 37.8506 76.5146 37.835 77.4911 37.835C78.1125 37.835 78.7377 37.8415 79.3621 37.8535C79.5664 37.8416 79.6802 37.8354 79.6883 37.835C79.6858 37.8363 79.6711 37.8437 79.6463 37.8584C91.1303 38.1145 102.608 40.5505 99.4784 49.5107C90.8567 66.6509 50.1731 68.2096 50.0067 68.2158L50.0057 68.2139C50.105 68.2101 86.7027 66.778 94.4539 50.8965C97.442 42.0801 85.6091 40.085 74.6991 40.085C63.797 40.085 50.0174 42.069 49.9998 50.4502V50.9531C49.9999 51.1074 49.9949 51.2598 49.9862 51.4102V100.002C49.9862 100.002 48.2558 82.5616 47.4608 79.4668C45.9071 73.4193 45.687 70.1912 41.4061 66.668C37.2244 63.2269 30.2655 62.313 25.492 62.1211C24.484 62.1513 23.4858 62.167 22.5096 62.167C21.8881 62.167 21.2631 62.1604 20.6385 62.1484C20.4328 62.1604 20.3188 62.1666 20.3123 62.167C20.3145 62.1658 20.3292 62.1584 20.3543 62.1436C8.87094 61.8873 -2.6068 59.4508 0.522302 50.4912C9.13331 33.3717 49.7297 31.7962 49.994 31.7861L49.995 31.7881C49.95 31.7898 13.3038 33.2121 5.54672 49.1055C2.55847 57.922 14.3915 59.917 25.3016 59.917C36.2041 59.917 49.9833 57.9328 49.9998 49.5508V49.0488C49.9998 48.8989 50.0052 48.7507 50.0135 48.6045V0Z" fill="#371F1F"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TRABALHOS (carrossel coverflow) ===== -->
+    <section class="work" id="work">
+      <div class="container">
+        <h2 class="work__title">Meus trabalhos recentes</h2>
+
+        <!-- Cada card é uma caixa branca única: imagem no topo
+             (.project-card__frame) e, embaixo, título + categoria + seta
+             (.project-card__body) — tudo dentro da mesma moldura, sem
+             gradiente sobre a foto. data-title/data-category continuam
+             existindo só como referência auxiliar. -->
+        <div class="carousel" id="carousel">
+          <div class="carousel__stage" id="carouselStage">
+
+            <a class="project-card"
+               href="projetos/aptta.html"
+               data-title="Appta"
+               data-category="Branding e Design System">
+              <div class="project-card__frame">
+                <img src="static/img/mockups/appta/homeaptta.webp" alt="Mockup do projeto Appta, branding e design system">
+                <span class="project-card__arrow">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H9M17 7V15" stroke="#1A1210" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="project-card__body">
+                <h3 class="project-card__title">Appta</h3>
+                <p class="project-card__category">Design System e Branding</p>
+              </div>
+            </a>
+
+            <a class="project-card"
+               href="projetos/getsnack.html"
+               data-title="Getsnack"
+               data-category="App e Gamificação">
+              <div class="project-card__frame">
+                <img src="static/img/mockups/getsnack/homegetsnack.webp" alt="Mockup do projeto Getsnack, aplicativo de e-commerce">
+                <span class="project-card__arrow">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H9M17 7V15" stroke="#1A1210" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="project-card__body">
+                <h3 class="project-card__title">Getsnack</h3>
+                <p class="project-card__category">App e Gamificação</p>
+              </div>
+            </a>
+
+            <a class="project-card"
+               href="projetos/inpi.html"
+               data-title="INPI"
+               data-category="Plataforma web">
+              <div class="project-card__frame">
+                <img src="static/img/mockups/inpi/homeinpi.webp" alt="Mockup do projeto INPI, plataforma web">
+                <span class="project-card__arrow">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H9M17 7V15" stroke="#1A1210" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="project-card__body">
+                <h3 class="project-card__title">INPI</h3>
+                <p class="project-card__category">Solução web para o setor público</p>
+              </div>
+            </a>
+
+            <a class="project-card"
+               href="projetos/lumpia.html"
+               data-title="Lumpia"
+               data-category="Landing page e Dashboard">
+              <div class="project-card__frame">
+                <img src="static/img/mockups/lumpia/homelumpia.webp" alt="Mockup do projeto Lumpia, landing page e dashboard">
+                <span class="project-card__arrow">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H9M17 7V15" stroke="#1A1210" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="project-card__body">
+                <h3 class="project-card__title">Lumpia</h3>
+                <p class="project-card__category">Landing page e Dashboard</p>
+              </div>
+            </a>
+
+          </div>
+
+          <div class="carousel__controls">
+            <button type="button" class="carousel__arrow" data-dir="-1" aria-label="Projeto anterior">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 5L8 12L15 19" stroke="#1A1210" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+
+            <div class="carousel__dots" id="carouselDots"></div>
+
+            <button type="button" class="carousel__arrow" data-dir="1" aria-label="Próximo projeto">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 5L16 12L9 19" stroke="#1A1210" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>&copy; 2026 Rayane Araújo</span>
+      <a href="mailto:rayane.araujocunha@gmail.com">rayane.araujocunha@gmail.com</a>
+    </div>
+  </footer>
+
+  <script src="static/js/carousel.js"></script>
+  <script src="/static/js/cursor.js"></script>
+</body>
+</html>
