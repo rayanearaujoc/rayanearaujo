@@ -4,6 +4,19 @@
    =================================================== */
 
 /* ---------- Botão voltar ---------- */
+.case-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--color-bg);
+  border: 1px solid #cbc4c0;
+  border-radius: var(--radius-pill);
+  padding: 0.55rem 1rem 0.55rem 0.55rem;
+  font-size: var(--fs-small);
+  color: var(--color-text);
+  transition: background var(--ease) 0.25s, border-color var(--ease) 0.25s, transform var(--ease) 0.2s;
+}
+
 .site-header--project .container {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -16,19 +29,6 @@
 
 .site-header--project .site-header__spacer {
   justify-self: end;
-}
-
-.case-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  background: var(--color-bg);
-  border: 1px solid #cbc4c0;
-  border-radius: var(--radius-pill);
-  padding: 0.55rem 1rem 0.55rem 0.55rem;
-  font-size: var(--fs-small);
-  color: var(--color-text);
-  transition: background var(--ease) 0.25s, border-color var(--ease) 0.25s, transform var(--ease) 0.2s;
 }
 
 .case-back svg {
@@ -64,6 +64,7 @@
     display: none;
   }
 }
+
 
 /* ---------- Hero do case ---------- */
 .case-hero {
